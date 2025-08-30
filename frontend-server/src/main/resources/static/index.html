@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="no-referrer" />
+    <link rel="stylesheet" href="assets/layui/css/layui.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <title>商品列表</title>
+</head>
+<body>
+  <div class="seckill-body">
+      <div class="my-order-header">
+          <div class="seckill-top"><div class="seckill-welcome">
+              <div class="welcome-content">
+                  <div class="seckill-text">欢迎来到叩丁严选</div>
+                  <ul class="seckill-ul">
+                      <li class="seckill-li userInfo">
+                          <a href="#"  class="user-name">
+                              <label>用户名:  </label>
+                              <span id="nickName"></span>
+                          </a>
+                      </li>
+                      <li class="seckill-li userInfo">
+                          <a href="#" target="_blank" class="user-name">
+                              <label>我的订单</label>
+                          </a>
+                      </li>
+                      <li class="seckill-li loginBtn">
+                          <a href="login.html" class="shopping-content user-change-login">登录</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="seckill-nav">
+                  <div class="nav-content">
+                      <div class="nav-logo"> </div>
+                      <div class="nav-select">
+                          <ul class="nav-list">
+                              <li class="nav-text"><a href="index.html" >首页</a></li>
+                              <li class="nav-text"><a href="#">全部商品</a></li>
+                              <li class="nav-text"><a href="#">个人中心</a></li>
+                              <li class="nav-text"><a href="#">我的订单</a></li>
+                              <li class="nav-text"><a href="#">专属福利</a></li>
+                          </ul>
+                      </div>
+                      <div class="nav-search">
+                          <div class="input-content">
+                              <input type="text" placeholder="输入关键字" class="search-input">
+                          </div>
+                          <div class="search-img"></div>
+                      </div>
+                  </div>
+              </div>
+          </div></div>
+      </div>
+      <div class="seckill-content">
+          <div class="seckill-classify">
+              <div class="seckill-list">
+                   <div class="seckill-menu">
+                       <span class="seckill-menu-text seckill-menu-active">叩丁秒杀</span>
+                       <span class="seckill-menu-text">每日特价</span>
+                       <span class="seckill-menu-text">大牌闪购</span>
+                       <span class="seckill-menu-text">品类秒杀</span>
+                   </div>
+              </div>
+          </div>
+          <div class="seckill-container">
+              <div class="seckill-bg"></div>
+              <div class="seckill-tab" id="seckillTab"></div>
+              <div class="seckill-commodity">
+                  <ul class="flow-default current-list" id="currentCommodity"> </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <script type="text/javascript" src="assets/js/jquery.js"></script>
+  <script type="text/javascript" src="assets/layui/layui.all.js"></script>
+  <script type="text/javascript" src="assets/js/ajaxHttp.js"></script>
+  <script type="text/javascript" src="assets/js/template.js"></script>
+  <script type="text/javascript" src="assets/js/index.js"></script>
+
+  <!-- 商品秒杀时间分类模板 -->
+  <script type="text/html" id="commodityTab">
+      <% for (var p = 0; p < data.length; p++) {%>
+      <div class="seckill-tab-list <%:=data[p].status === 1 ? 'seckill-tab-list-active' : ''%>" comStatus='<%:=data[p].status%>' onclick="selectTabData(this, '<%:=data[p].status%>', '<%:=data[p].val%>')">
+          <div class="seckill-tab-list-data  <%:=data[p].status === 1 || p === 0 ?  'seckill-tab-active' : ''%>">
+              <div class="seckill-time"><%:=data[p].time%></div>
+              <div class="seckill-change" id="seckillChange">
+                  <div class="seckill-tip">
+                      <% if (data[p].status === 1) { %>
+                          <p class="tip-text">正在秒杀</p>
+                          <p class="tip-time"><span class="text">距结束</span> <span class="timeArray">00：00：00</span></p>
+                      <%} else if(data[p].status === 0){%>
+                          <button type="button" class="startBtn">即将开始</button>
+                      <%} else {%>
+                          <button type="button" class="startBtn">已结束</button>
+                      <%}%>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <%}%>
+</script>
+  <!--  切换时更改当前活动倒计时状态  -->
+  <script type="text/html" id="seckillSelectStart">
+      <div class="seckill-tip">
+          <% if (parentData.status === 1) { %>
+              <p class="tip-text">正在秒杀</p>
+              <p class="tip-time"><span class="text">距结束</span> <span class="timeArray"></span></span></p>
+          <% } else if (parentData.status === 0){%>
+              <p class="tip-text">即将开始</p>
+          <p class="tip-time"><span class="text">距开始 </span><span class="timeArray"></span></p>
+          <% } else { %>
+              <p class="tip-text">秒杀结束</p>
+              <p class="tip-time"></p>
+          <%}%>
+      </div>
+  </script>
+  <script type="text/html" id="seckillSelectAwait">
+      <div class="seckill-tip">
+          <% if (changeData === 1) { %>
+              <button type="button" class="startBtn">进行中</button>
+          <% } else if (changeData === 0) { %>
+              <button type="button" class="startBtn">即将开始</button>
+          <% } else { %>
+              <button type="button" class="startBtn">已结束</button>
+          <% } %>
+      </div>
+  </script>
+  <!-- 当前活动时间倒计时状态 -->
+  <script type="text/html" id="los">
+      <span><%:=pag.hourse%></span> : <span><%:=pag.miute%></span> : <span><%:=pag.sen%></span>
+ </script>
+  <!-- 商品列表数据模板 -->
+  <script type="text/html" id="commodityData">
+      <% for (var i = 0; i < data.length; i++) {%>
+      <li class="commodity-data">
+          <div class="commodity-data-flex">
+              <div class="commodityImg">
+                  <img src="<%:=data[i].productImg%>" alt="" class="moreGood-img">
+              </div>
+              <div class="textParent">
+                  <p class="commodity-text"><%:=data[i].productName%></p>
+                  <div class="seckill-tag">
+                      <p class="seckill-tag-text"><%:=data[i].productDetail%></p>
+                  </div>
+              </div>
+              <div class="seckill-operation">
+                  <div class="seckill-good-cur">
+                      <div class="seckill-money-num">
+                          <div class="seckill-money-status">
+                              <h2 class="seckill-number"><span class="seckill-num">￥</span><%:=data[i].seckillPrice%></h2>
+                              <span class="old-number">￥<del><%:=data[i].productPrice%></del></span>
+                          </div>
+                          <div class="seckill-shop-number">
+                              <div class="seckill-start-status">
+                                  <span class="comeback-num">已售<%:=(data[i].stockCount-data[i].currentCount)*100/data[i].stockCount%>%</span>
+                                  <div class="shop-number-status"><i class="current-progress" style="width:<%:=(data[i].stockCount-data[i].currentCount)*100/data[i].stockCount%>%"></i></div>
+                              </div>
+                          </div>
+                      </div>
+                      <!--<div class="seckill-oper-btn">
+                          <% if (data[i].startStatus === 1) { %>
+                          <a href='javascript:void(0)' onclick="doSeckill(<%:=data[i].seckillId%>,<%:=data[i].time%>)" target="_blank" class="operation-button">立即抢购</a>
+                          <%} else {%>
+                          <button class="operation-button operation-await-button">即将开始</button>
+                          <%}%>
+                      </div>-->
+                      <a href='commodityDetails.html?id=<%:=data[i].time%>&seckillId=<%:=data[i].id%>' target="_blank" class="operation-button">立即抢购</a
+                      <!--<a href='javascript:void(0)' onclick='doSeckill(<%:=data[i].id%>,<%:=data[i].time%>)' target="_blank" class="operation-button">立即抢购</a>-->
+                  </div>
+              </div>
+          </div>
+      </li>
+      <%}%>
+</script>
+</body>
+</html>

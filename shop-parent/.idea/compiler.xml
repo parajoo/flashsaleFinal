@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="websocket-server" />
+        <module name="shop-uaa" />
+        <module name="product-server" />
+        <module name="pay-api" />
+        <module name="intergral-api" />
+        <module name="seckill-api" />
+        <module name="pay-server" />
+        <module name="job-server" />
+        <module name="seckill-server" />
+        <module name="intergral-server" />
+        <module name="api-gateway" />
+        <module name="product-api" />
+        <module name="frontend-server" />
+        <module name="shop-common" />
+        <module name="canal-client" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="canal-client" options="-parameters" />
+      <module name="frontend-server" options="-parameters" />
+      <module name="intergral-api" options="-parameters" />
+      <module name="intergral-server" options="-parameters" />
+      <module name="job-server" options="-parameters" />
+      <module name="pay-api" options="-parameters" />
+      <module name="pay-server" options="-parameters" />
+      <module name="product-api" options="-parameters" />
+      <module name="product-server" options="-parameters" />
+      <module name="seckill-api" options="-parameters" />
+      <module name="seckill-server" options="-parameters" />
+      <module name="shop-common" options="-parameters" />
+      <module name="shop-uaa" options="-parameters" />
+      <module name="websocket-server" options="-parameters" />
+    </option>
+  </component>
+</project>

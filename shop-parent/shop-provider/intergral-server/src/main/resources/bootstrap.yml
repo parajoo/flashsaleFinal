@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: intergral-service
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848 #nacos中心地址
+        file-extension: yaml # 配置文件格式
+        shared-configs:
+          - data-id: nacos-discovery-config-dev.yaml
+  profiles:
+    active: dev # 环境标识
+

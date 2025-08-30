@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: seckill-service
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848 #nacos中心地址
+        file-extension: yaml # 配置文件格式
+        shared-configs:
+          - data-id: redis-config-dev.yaml
+          - data-id: rocketmq-config-dev.yaml
+          - data-id: nacos-discovery-config-dev.yaml
+        namespace: shop-flashsale
+  profiles:
+    active: dev # 环境标识
+
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/layui/css/layui.css">
+    <link rel="stylesheet" href="assets/css/myOder.css">
+</head>
+<body>
+ <div class="myOrder-body">
+     <div class="my-order-header">
+         <div class="seckill-top"><div class="seckill-welcome">
+             <div class="welcome-content">
+                 <div class="seckill-text">欢迎来到叩丁严选</div>
+                 <ul class="seckill-ul">
+                     <li class="seckill-li userInfo">
+                         <a href="#"  class="user-name">
+                             <label>用户名:  </label>
+                             <span id="nickName"></span>
+                         </a>
+                     </li>
+                     <li class="seckill-li userInfo">
+                         <a href="#" target="_blank" class="user-name">
+                             <label>我的订单</label>
+                         </a>
+                     </li>
+                     <li class="seckill-li loginBtn">
+                         <a href="login.html" class="shopping-content user-change-login">登录</a>
+                     </li>
+                 </ul>
+             </div>
+             <div class="seckill-nav">
+                 <div class="nav-content">
+                     <div class="nav-logo"> </div>
+                     <div class="nav-select">
+                         <ul class="nav-list">
+                             <li class="nav-text"><a href="index.html" >首页</a></li>
+                             <li class="nav-text"><a href="#">全部商品</a></li>
+                             <li class="nav-text"><a href="#">个人中心</a></li>
+                             <li class="nav-text"><a href="#">我的订单</a></li>
+                             <li class="nav-text"><a href="#">专属福利</a></li>
+                         </ul>
+                     </div>
+                     <div class="nav-search">
+                         <div class="input-content">
+                             <input type="text" placeholder="输入关键字" class="search-input">
+                         </div>
+                         <div class="search-img"></div>
+                     </div>
+                 </div>
+             </div>
+         </div></div>
+     </div>
+     <!--  我的订单列表  -->
+     <div class="paymentPage-body">
+         <div class="paymentPage-content" id="orderListData"></div>
+     </div>
+     </div>
+ <script type="text/javascript" src="assets/js/jquery.js"></script>
+ <script type="text/javascript" src="assets/layui/layui.all.js"></script>
+ <script type="text/javascript" src="assets/js/ajaxHttp.js"></script>
+ <script type="text/javascript" src="assets/js/template.js"></script>
+ <script type="text/javascript" src="assets/js/myOder.js"></script>
+ <script type="text/html" id="orderData">
+     <div class="paymentPage-prices">
+         <div class="price-image"><img src="<%:=orderData.productImg%>" width="80" height="100" alt=""></div>
+         <div class="price-data">
+             <div class="price-title">
+                 <h2><%:=orderData.productName%></h2>
+             </div>
+             <div class="price-num"><span>￥</span><%:=orderData.seckillPrice%>  / </div> <div class="price-num">  <%:=orderData.intergral%><span>积分</span></div>
+         </div>
+     </div>
+     <div class="paymentPage-buy-message">
+         <div class="buy-message-content">
+             <div class="buy-message-title">
+                 <label>下单时间</label>
+                 <span><%:=orderData.createDate%></span>
+             </div>
+             <div class="buy-message-title">
+                 <label>订单状态</label>
+                 <%if (orderData.status === 0) {%>
+                 <span>未付款</span>
+                 <% } else if (orderData.status === 1) { %>
+                 <span>已付款</span>
+                 <%} else if (orderData.status === 2) { %>
+                 <span>手动取消订单</span>
+                 <%}else if (orderData.status === 3) { %>
+                 <span>超时取消订单</span>
+                 <%} else if (orderData.status === 4){ %>
+                 <span>退款</span>
+                 <%}%>
+             </div>
+             <%if (orderData.status === 1 || orderData.status===4) {%>
+             <div class="buy-message-title">
+                 <label>支付类型</label>
+                 <%if (orderData.payType === 0) {%>
+                    <span>在线支付</span>
+                 <%}else{ %>
+                    <span>积分支付</span>
+                 <%}%>
+             </div>
+             <%}%>
+             <div class="buy-message-title">
+                 <label>收货人</label>
+                 <span>叩丁狼</span>
+             </div>
+             <div class="buy-message-title">
+                 <label>收货地址</label>
+                 <span>广州市棠下天河区叩丁狼</span>
+             </div>
+         </div>
+     </div>
+     <%if (orderData.status === 0) {%>
+     <div class="paymentPage-select">
+         <p class="select-title">选择支付方式</p>
+         <div class="message-wxStyle">
+             <p class="select-name">在线支付</p>
+             <div class="checkBtn checkBtnActive" value="0">
+                 <div class="checkBtnRadios" style="display: block"></div>
+             </div>
+         </div>
+         <div class="message-wxStyle">
+             <p class="select-name">积分支付</p>
+             <div class="checkBtn" value="1">
+                 <div class="checkBtnRadios"></div>
+             </div>
+         </div>
+     </div>
+     <div class="message-btn-array">
+         <div class="message-select-btn" ><span class="btn-text" onclick="startPayMent('<%:=orderData.orderNo%>')">立即支付</span></div>
+         <div class="message-select-btn message-delete-btn" onclick="cancelMent('<%:=orderData.orderNo%>')"><span class="btn-text">取消订单</span></div>
+     </div>
+     <%}if (orderData.status === 1){%>
+     <div class="message-select-btn message-delete-btn" onclick="delectPayMent('<%:=orderData.orderNo%>')"><span class="btn-text">申请退款</span></div>
+     <%}%>
+ </script>
+<div id ="pay"></div>
+</body>
+</html>

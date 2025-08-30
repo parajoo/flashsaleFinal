@@ -1,0 +1,300 @@
+.commodityDetails-container {
+    width:1200px;
+    margin:0 auto;
+    padding:15px 0;
+    box-sizing: border-box;
+}
+.container-top {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+.container-top-left {}
+.currentImg {
+    width: 350px;
+    height:350px;
+    overflow: hidden;
+}
+.big-img-data {
+    width: 100%;
+    display: block;
+}
+.commodity-ul {
+    padding-top: 21px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.commodity-li {
+    margin-right: 10px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    background-color: #efefef;
+    opacity: 0.4;
+}
+.commodity-li img {
+    width: 100%;
+    display: block;
+}
+.container-top-right {
+    padding:0 15px;
+    box-sizing: border-box;
+}
+.container-title {
+    font-size:20px;
+    color:#666;
+    font-weight:bold;
+}
+.container-subtitle {
+    padding:10px 0;
+    box-sizing: border-box;
+}
+.subtitle-text {
+    font-size:12px;
+    color:red;
+}
+.subtitle-text span {
+    color:#5e69ad;
+    text-decoration: underline;
+}
+.container-body {
+
+}
+.container-body-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding:5px 10px;
+    box-sizing: border-box;
+    background:#fe0851;
+}
+.title-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size:14px;
+    color:#fff;
+    text-align: left;
+}
+.title-text i{
+    background-image: url(../image/sprite.png);
+    background-position: -20px 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+
+}
+.title-time {
+    flex: 1;
+    color: #fff;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.current-last-time {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.current-last-time span {
+    width:25px;
+    height:25px;
+    border-radius:3px;
+    background:#333;
+    font-size:12px;
+    color:#fff;
+    line-height:25px;
+    text-align: center;
+}
+.last-time-text {
+    padding-right:10px;
+    box-sizing: border-box;
+}
+.container-body-content {
+    padding:10px 0;
+    box-sizing: border-box;
+    background:#efefef;
+    background-image: url("../image/price-bg.png");
+    background-position: left top;
+}
+.container-body-summany {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container-label {
+    line-height: 22px;
+    font-size:14px;
+    font-family: simsun;
+    color: #999;
+    width:60px;
+    text-align: left;
+}
+.price-content {
+    flex:1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container-content {
+    padding-left:15px;
+    box-sizing: border-box;
+    flex:1;
+}
+.container-content-left {
+    flex:1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*padding-left:15px;*/
+    /*box-sizing: border-box;*/
+}
+.price {
+    font-size: 22px;
+    color:#e4393c;
+}
+.price span {
+    font-size:12px;
+    padding-right:10px;
+    box-sizing: border-box;
+}
+.delOldNum {
+    font-size:12px;
+    color:#999;
+    padding-left:10px;
+    box-sizing: border-box;
+}
+.tipMsg {
+    font-size:12px;
+    color:#005aa0;
+}
+.container-number {
+    padding:0 15px;
+    box-sizing: border-box;
+    border-left:1px solid #ececec;
+}
+.number-cur {
+    color:#999;
+    font-size:14px;
+}
+.number-value {
+    font-size:14px;
+    color:#005ea7;
+}
+.btn {
+    height: 46px;
+    line-height: 46px;
+    padding: 0 26px;
+    font-size: 18px;
+    font-family: "microsoft yahei";
+    font-weight: bold;
+    color:#fff;
+    cursor: pointer;
+    background:#df3033;
+}
+.blank-text {
+    color:#999;
+    font-size:12px;
+    padding:15px 0;
+    box-sizing: border-box;
+}
+/* 详情底部信息 */
+.container-bottom {
+  width:1200px;
+    margin:0 auto;
+    padding:15px 0;
+    box-sizing: border-box;
+}
+.container-ul {
+    display: flex;
+    width:100%;
+    background:#efefef;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #eee;
+    border-bottom: 1px solid #e4393c;
+}
+.trigger {
+    padding: 10px 25px;
+    font-size: 14px;
+    color:#666;
+    cursor: pointer;
+}
+.trigger:hover {
+    color:red;
+}
+.trigger-active:hover {
+    color:#fff;
+}
+.container-commodity-message {
+    padding:20px 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+}
+.commodity-name {
+    font-size:12px;
+    color:#666;
+}
+.commodity-name span{
+    font-size:12px;
+    color:#5e69ad;
+}
+.trigger-active {
+    background:red;
+    color:#fff;
+}
+.commodity-bottom-ul {
+  padding:20px 0 0;
+    box-sizing: border-box;
+}
+.commodity-bottom-li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    /* padding-left: 45px; */
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+.commodity-bottom-li .li-label,.commodity-bottom-li .li-text {
+   font-size: 12px;
+    color:#666;
+    display: inline-block;
+}
+.commodity-image-array {
+    padding:15px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+.container-blank {
+   padding:20px 0;
+    box-sizing: border-box;
+}
+.priceProgress {
+    width:300px;
+    height:8px;
+    border-radius:10px;
+    background:#ddd;
+    display: inline-block;
+}
+.progressNum {
+    background: red;
+    width: 60%;
+    display: block;
+    height: 8px;
+    border-radius: inherit;
+}
+.progressText {
+    padding-left:10px;
+    box-sizing: border-box;
+    color: red;
+    font-size:12px;
+    display: inline-block;
+}
+/*  登录页状态  */
+.userLogin {
+    display: none;
+}

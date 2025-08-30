@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-provider/job-server/job-server.iml" filepath="$PROJECT_DIR$/shop-provider/job-server/job-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-provider/pay-server/pay-server.iml" filepath="$PROJECT_DIR$/shop-provider/pay-server/pay-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-provider/product-server/product-server.iml" filepath="$PROJECT_DIR$/shop-provider/product-server/product-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-provider/seckill-server/seckill-server.iml" filepath="$PROJECT_DIR$/shop-provider/seckill-server/seckill-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-uaa/shop-uaa.iml" filepath="$PROJECT_DIR$/shop-uaa/shop-uaa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/websocket-server/websocket-server.iml" filepath="$PROJECT_DIR$/websocket-server/websocket-server.iml" />
+    </modules>
+  </component>
+</project>

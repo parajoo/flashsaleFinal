@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../frontend-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/canal-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider-api/intergral-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider-api/pay-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider-api/product-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider-api/seckill-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider/intergral-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider/job-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider/pay-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider/product-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider/seckill-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-uaa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/websocket-server/src/main/java" charset="UTF-8" />
+  </component>
+</project>
